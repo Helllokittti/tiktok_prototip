@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { registerUser, loginUser } from '../api/api';
 import { AuthContext } from '../contexts/AuthContext';
-import './AuthPage.css'; // Создайте этот файл для стилей AuthPage
+import './AuthPage.css';
 
 function AuthPage() {
     const [isRegister, setIsRegister] = useState(false);

@@ -6,7 +6,7 @@ import { AuthContext } from '../contexts/AuthContext';
 
 import { getChatUsers, getMessages, sendChatMessage } from '../api/api';
 
-import './ChatPage.css'; // Убедитесь, что этот CSS-файл существует и содержит нужные стили
+import './ChatPage.css';
 
 
 

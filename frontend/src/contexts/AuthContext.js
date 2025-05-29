@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode'; // Убедитесь, что эта библиотека установлена
+import { jwtDecode } from 'jwt-decode';
 
 export const AuthContext = createContext();
 
@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
                     setToken(storedToken);
                     setIsAuthenticated(true);
                     // Дополнительно можно получить информацию о пользователе из токена или из localStorage
-                    setUser({ id: decodedToken.user_id, username: decodedToken.username }); // Убедитесь, что username есть в токене
+                    setUser({ id: decodedToken.user_id, username: decodedToken.username });
                 } else {
                     // Токен просрочен
                     localStorage.removeItem('token');

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { uploadVideo } from '../api/api';
 import { AuthContext } from '../contexts/AuthContext';
-import './UploadVideoPage.css'; // Создайте этот файл для стилей UploadVideoPage
+import './UploadVideoPage.css';
 
 function UploadVideoPage() {
     const [selectedFile, setSelectedFile] = useState(null);

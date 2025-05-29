@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// Измените на IP-адрес вашего компьютера, если тестируете в локальной сети
-// Например, если ваш IP 192.168.1.100, то:
 const API_BASE_URL = 'http://127.0.0.1:5000/api';
 
 const api = axios.create({

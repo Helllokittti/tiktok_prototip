@@ -9,7 +9,7 @@ import ChatPage from './pages/ChatPage';
 import { AuthProvider } from './contexts/AuthContext'; // Импортируем AuthProvider
 
 import './App.css'; // Общие стили приложения
-import './index.css'; // Убедитесь, что этот файл подключен в index.js, если его нет здесь
+import './index.css';
 
 function App() {
   return (

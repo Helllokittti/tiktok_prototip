@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
-import './Header.css'; // Создайте этот файл для стилей хедера
+import './Header.css';
 
 function Header() {
     const { isAuthenticated, logout } = useContext(AuthContext);
@@ -16,12 +16,12 @@ function Header() {
         <header className="header">
             <div className="header-left">
                 <Link to="/" className="header-logo">
-                    <img src="/logo.svg" alt="TikTok Logo" className="logo-icon" /> {/* Убедитесь, что logo.svg есть в public/ */}
+                    <img src="/logo.svg" alt="TikTok Logo" className="logo-icon" />
                     TikTok Clone
                 </Link>
             </div>
             <div className="header-center">
-                {/* Здесь может быть строка поиска, если реализуете */}
+                {/* Здесь может быть строка поиска*/}
                 <input type="text" placeholder="Поиск..." className="search-input" />
             </div>
             <nav className="header-nav">

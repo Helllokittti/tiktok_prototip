@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { getProfile, updateProfile } from '../api/api';
 import { AuthContext } from '../contexts/AuthContext';
-import './ProfilePage.css'; // Создайте этот файл для стилей ProfilePage
+import './ProfilePage.css';
 
 function ProfilePage() {
     const { isAuthenticated, user, token } = useContext(AuthContext);

@@ -1,0 +1,174 @@
+/* src/components/CommentModal.css */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Немного темнее overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #222; /* Темный фон для модалки */
+    color: #eee; /* Светлый текст */
+    padding: 25px; /* Увеличим общий padding */
+    border-radius: 12px; /* Более округлые углы */
+    width: 95%; /* Шире на мобильных */
+    max-width: 450px; /* Немного уже для десктопа */
+    max-height: 85vh; /* Чуть больше высота */
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Более выраженная тень */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px; /* Больше отступ */
+    color: #fe2c55; /* Цвет как на главной ленте */
+    font-size: 1.6em;
+}
+
+.close-modal-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2.2em; /* Больше крестик */
+    cursor: pointer;
+    color: #bbb; /* Серый цвет */
+    transition: color 0.2s ease;
+    line-height: 1; /* Убрать лишний отступ */
+    padding: 0;
+}
+
+.close-modal-button:hover {
+    color: #fe2c55; /* Цвет при наведении */
+}
+
+.comments-list {
+    flex-grow: 1; /* Занимает все доступное место */
+    margin-bottom: 20px;
+    padding-right: 5px; /* Для скроллбара, если он есть */
+    /* border-bottom: 1px solid #444; Уберем или сделаем тоньше */
+    padding-bottom: 15px;
+    overflow-y: auto; /* Если комментариев много */
+    max-height: calc(85vh - 200px); /* Примерная высота, чтобы оставить место для формы */
+}
+
+.comment-item {
+    background-color: #333; /* Темнее фон комментария */
+    padding: 12px 15px; /* Увеличим отступы внутри */
+    border-radius: 8px; /* Более округлые углы */
+    margin-bottom: 10px; /* Меньший отступ между комментариями */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Легкая тень */
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Отступ между заголовком и текстом комментария */
+}
+
+.comment-item strong {
+    color: #fe2c55; /* Цвет никнейма */
+    font-size: 1.1em;
+}
+
+.comment-item small {
+    color: #999; /* Цвет даты */
+    font-size: 0.75em; /* Меньший размер */
+}
+
+.comment-text {
+    margin: 5px 0 0 0; /* Убрать лишние margin у абзаца */
+    font-size: 0.9em; /* Чуть меньше размер текста комментария */
+    line-height: 1.4; /* Улучшить читаемость */
+    color: #eee;
+    word-wrap: break-word; /* Перенос длинных слов */
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px; /* Отступ от списка комментариев */
+}
+
+.comment-form textarea {
+    resize: vertical;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid #555; /* Темная рамка */
+    border-radius: 6px;
+    background-color: #444; /* Темный фон для textarea */
+    color: #eee; /* Светлый текст */
+    font-size: 0.95em;
+    min-height: 70px; /* Минимальная высота */
+}
+
+.comment-form textarea::placeholder {
+    color: #bbb;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #fe2c55; /* Цвет рамки при фокусе */
+    box-shadow: 0 0 0 2px rgba(254, 44, 85, 0.3);
+}
+
+.comment-form button[type="submit"] {
+    background-color: #fe2c55; /* Цвет кнопки как на главной ленте */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.comment-form button[type="submit"]:hover {
+    background-color: #e6284f; /* Темнее при наведении */
+    transform: translateY(-1px);
+}
+
+.auth-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* Стили для скроллбара (только для WebKit-браузеров) */
+.comments-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* Для Firefox */
+.comments-list {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #333;
+}

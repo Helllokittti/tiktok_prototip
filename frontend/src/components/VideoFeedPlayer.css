@@ -1,0 +1,201 @@
+/* src/components/VideoFeedPlayer.css */
+
+/* Контейнер-обертка для всего видеоплеера */
+.video-feed-player-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Занимает всю высоту viewport */
+    background-color: #000; /* Черный фон */
+    position: relative;
+    overflow: hidden; /* Скрывает содержимое, выходящее за границы */
+}
+
+/* Контейнер самого видеоплеера */
+.video-player-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Максимальная ширина видео */
+    height: 80vh; /* Высота видео относительно viewport */
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 80px; /* Отступы по бокам, чтобы оставить место для стрелок */
+}
+
+/* Стили для элемента <video> */
+.video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Видео будет масштабироваться так, чтобы поместиться, сохраняя пропорции */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Тень для эффекта глубины */
+}
+
+/* Наложение с информацией о видео (пользователь и описание) */
+.video-info-overlay {
+    position: absolute;
+    bottom: 70px; /* Отступ от нижнего края видео */
+    left: 10px; /* Отступ от левого края видео */
+    color: white;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный темный фон */
+    padding: 12px 15px; /* Внутренние отступы */
+    border-radius: 8px; /* Скругленные углы */
+    max-width: 300px; /* Максимальная ширина блока */
+}
+
+/* Контейнер для имени пользователя и описания, чтобы они были в одной строке */
+.video-meta {
+    margin: 0; /* Убираем стандартные внешние отступы у абзаца */
+    display: flex; /* Используем Flexbox для размещения элементов в одну строку */
+    align-items: baseline; /* Выравнивание элементов по их базовой линии текста */
+    flex-wrap: wrap; /* Разрешаем перенос на следующую строку, если содержимое не помещается */
+}
+
+/* Имя пользователя */
+.video-username {
+    font-weight: bold;
+    color: #fe2c55; /* Цвет, как в логотипе TikTok */
+    margin-right: 8px; /* Отступ справа от имени пользователя */
+    white-space: nowrap; /* Запрещаем перенос имени пользователя на новую строку */
+    font-size: 1.05em; /* Размер шрифта */
+}
+
+/* Описание видео в одну строку */
+.video-description-inline {
+    color: #fff;
+    font-size: 0.85em; /* Размер шрифта */
+    flex-grow: 1; /* Описание займет все оставшееся пространство */
+    word-wrap: break-word; /* Позволяет длинным словам переноситься */
+    min-width: 0; /* Важно для корректной работы flex-grow с flex-wrap */
+    line-height: 1.3; /* Межстрочный интервал */
+}
+
+/* Боковая панель с кнопками действий */
+.video-actions-sidebar {
+    position: absolute;
+    right: 40px; /* Отступ от правого края видео */
+    bottom: 70px; /* Отступ от нижнего края видео */
+    display: flex;
+    flex-direction: column; /* Элементы располагаются по вертикали */
+    gap: 10px; /* Промежуток между кнопками */
+    z-index: 10;
+}
+
+/* Общие стили для кнопок действий */
+.action-button {
+    background-color: rgba(255, 255, 255, 0.25); /* Полупрозрачный белый фон */
+    border: none;
+    border-radius: 50%; /* Круглые кнопки */
+    width: 45px; /* Ширина кнопки */
+    height: 45px; /* Высота кнопки */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Цвет иконок */
+    font-size: 1.3em; /* Размер иконки */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Плавные переходы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Тень кнопки */
+}
+
+.action-button:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Увеличение прозрачности при наведении */
+    transform: scale(1.05); /* Небольшое увеличение при наведении */
+}
+
+.action-button span {
+    font-size: 0.6em; /* Размер шрифта для числа лайков/комментариев */
+    margin-top: 2px; /* Отступ сверху от числа */
+    color: #fff;
+}
+
+/* Стили для кнопки лайка, когда видео лайкнуто */
+.like-button.liked {
+    background-color: #fe2c55; /* Цвет лайка, когда видео лайкнуто */
+}
+
+/* Контейнер для стрелок навигации */
+.video-navigation-arrows {
+    position: absolute;
+    right: 20px; /* Отступ от правого края */
+    top: 50%; /* Позиционирование по центру по вертикали */
+    transform: translateY(-50%); /* Корректировка для точного центрирования */
+    display: flex;
+    flex-direction: column; /* Стрелки расположены по вертикали */
+    gap: 20px; /* Промежуток между стрелками */
+    z-index: 20; /* Поверх остальных элементов */
+}
+
+/* Стили для стрелок навигации */
+.nav-arrow {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.nav-arrow:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.nav-arrow:disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Адаптивность для меньших экранов (например, мобильных) */
+@media (max-width: 768px) {
+    .video-player-container {
+        height: 70vh; /* Меньшая высота видео */
+        max-width: 90%; /* Большая ширина видео */
+        margin: 0; /* Убираем боковые отступы */
+    }
+
+    .video-feed-player-wrapper {
+        flex-direction: column; /* Элементы располагаются по вертикали */
+    }
+
+    .video-navigation-arrows {
+        position: static; /* Статичное позиционирование */
+        flex-direction: row; /* Стрелки располагаются горизонтально */
+        margin-top: 20px; /* Отступ сверху */
+        transform: none; /* Убираем трансформацию */
+    }
+
+    .video-actions-sidebar {
+        right: 10px; /* Меньший отступ справа */
+        bottom: 10px; /* Меньший отступ снизу */
+        gap: 10px; /* Меньший промежуток между кнопками */
+    }
+
+    .action-button {
+        width: 40px; /* Меньший размер кнопок */
+        height: 40px;
+        font-size: 1.2em; /* Меньший размер иконок */
+    }
+
+    .nav-arrow {
+        width: 50px; /* Меньший размер стрелок */
+        height: 50px;
+        font-size: 1.8em; /* Меньший размер шрифта стрелок */
+    }
+
+    .video-info-overlay {
+        max-width: calc(100% - 100px); /* Адаптируем ширину блока информации */
+    }
+}

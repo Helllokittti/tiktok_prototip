@@ -1,0 +1,93 @@
+/* frontend/src/pages/UploadVideoPage.css */
+
+.upload-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-container h2 {
+    color: #fe2c55;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.upload-form {
+    background-color: #222;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;
+    color: white;
+}
+
+.upload-form .form-group {
+    margin-bottom: 20px;
+}
+
+.upload-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #bbb;
+    font-weight: bold;
+}
+
+.upload-form .file-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Стилизация input type="file" для лучшего вида */
+.file-input::-webkit-file-upload-button {
+    background-color: #fe2c55;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.file-input::-webkit-file-upload-button:hover {
+    background-color: #e6244f;
+}
+
+
+.upload-form .textarea-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: vertical; /* Разрешить вертикальное изменение размера */
+}
+
+.upload-form .textarea-field:focus {
+    outline: none;
+    border-color: #fe2c55;
+    box-shadow: 0 0 0 2px rgba(254, 44, 85, 0.3);
+}
+
+.upload-form .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.upload-form .btn-primary:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}

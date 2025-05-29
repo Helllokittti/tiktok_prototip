@@ -1,0 +1,89 @@
+/* frontend/src/components/Header.css */
+
+.header {
+    background-color: #000; /* Черный фон хедера */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Чтобы хедер был поверх других элементов */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    height: 30px; /* Размер логотипа */
+    margin-right: 10px;
+}
+
+.header-center {
+    flex-grow: 1; /* Чтобы поле поиска могло растягиваться */
+    margin: 0 20px;
+    max-width: 400px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px; /* Скругленные края */
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Расстояние между элементами навигации */
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: #333;
+}
+
+.header-nav .btn-primary {
+    /* Стили для кнопки "Войти/Выйти" */
+    background-color: #fe2c55;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* Убираем подчеркивание для Link, если она используется как кнопка */
+    display: inline-block; /* Для Link, чтобы работал padding */
+}
+
+.header-nav .btn-primary:hover {
+    background-color: #e6244f;
+}

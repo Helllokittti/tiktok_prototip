@@ -1,0 +1,112 @@
+/* frontend/src/App.css */
+
+/* Базовые стили для тела документа */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #121212; /* Темный фон, как в TikTok */
+    color: white; /* Белый текст */
+    overflow-x: hidden; /* Избегаем горизонтальной прокрутки */
+}
+
+/* Стили для контейнера всего приложения */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Минимальная высота на весь экран */
+}
+
+/* Стили для основной области контента (под хедером) */
+.app-main-content {
+    flex-grow: 1; /* Растягивает на всю доступную высоту */
+    padding: 20px;
+    box-sizing: border-box; /* Включаем padding в общую ширину/высоту */
+    max-width: 1200px; /* Ограничиваем ширину контента */
+    margin: 0 auto; /* Центрируем контент */
+    width: 100%;
+}
+
+/* Базовые стили для кнопок */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Основная кнопка (красная) */
+.btn-primary {
+    background-color: #fe2c55;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e6244f;
+}
+
+/* Вторичная кнопка (например, для отмены) */
+.btn-secondary {
+    background-color: #444;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+/* Базовые стили для инпутов */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #222;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+}
+
+/* Ссылки, которые выглядят как кнопки */
+.link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fe2c55;
+    color: white !important; /* !important для переопределения Link */
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.link-button:hover {
+    background-color: #e6244f;
+}
+
+/* Стили для сообщений об ошибках */
+.error-message {
+    color: #ff4d4f; /* Красный цвет для ошибок */
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+/* Стили для сообщений об успехе */
+.success-message {
+    color: #52c41a; /* Зеленый цвет для успеха */
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
